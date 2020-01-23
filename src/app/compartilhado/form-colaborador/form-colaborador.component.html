@@ -1,0 +1,76 @@
+<div class="cabecalho">
+    <h1 class="border-bottom">Cadastrar Colaborador</h1>
+</div>
+<div class="form-busca">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="nomeColaborador">Nome</label>
+                <input
+                    #nomeColaborador="ngModel"
+                    [class.is-invalid]="!nomeColaborador.valid && nomeColaborador.touched"
+                    [(ngModel)]="colaborador.nomeColaborador"
+                    type="text"
+                    class="form-control" 
+                    id="nomeColaborador"
+                    name="nomeColaborador" 
+                    required
+                    placeholder="Digite o nome do(a) Colaborador">
+                <div *ngIf="!nomeColaborador.valid && nomeColaborador.touched" class="invalid-feedback">
+                    Digite o nome do(a) Colaborador
+                </div>  
+            </div>
+            <div class="form-group col-md-6">
+                <label for="foneColaborador">Telefone</label>
+                <input 
+                    type="tel"
+                    #foneColaborador="ngModel"
+                    [class.is-invalid]="!foneColaborador.valid && foneColaborador.touched"
+                    [(ngModel)]="colaborador.foneColaborador"
+                    class="form-control" 
+                    id="foneColaborador" 
+                    name="foneColaborador"
+                    placeholder="Digite o Telefone do(a) Colaborador"
+                    onkeypress="$(this).mask('(00) 00000-0000')"
+                    required>
+                <div *ngIf="!foneColaborador.valid && foneColaborador.touched" class="invalid-feedback">
+                    Digite o Telefone do(a) Colaborador
+                </div> 
+            </div>
+            <div class="form-group col-md-4">
+                <label for="funcaoColaborador">Função</label>
+                <select 
+                    #funcaoColaborador="ngModel"
+                    [class.is-invalid]="!funcaoColaborador.valid && funcaoColaborador.touched"
+                    [(ngModel)]="colaborador.funcaoColaborador"
+                    id="funcaoColaborador" 
+                    name="funcaoColaborador"
+                    class="form-control"
+                    required>
+                    <option [ngValue]="undefined">Selecione...</option>
+                    <option value="Pedreiro">Pedreiro</option>
+                    <option value="Eletricista">Eletricista</option>
+                    <option value="Vendedor">Vendedor</option>
+                </select>
+                <div *ngIf="!funcaoColaborador.valid && funcaoColaborador.touched" class="invalid-feedback">
+                    Selecione o Função do(a) Colaborador
+                </div> 
+            </div>
+            <div class="form-group col-md-12">
+                <label for="obsColaborador">Observações</label>
+                <textarea 
+                    #obsColaborador="ngModel"
+                    [(ngModel)]="colaborador.obsColaborador"
+                    id="obsColaborador" 
+                    name="obsColaborador"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Digite alguma Observação caso necessária"></textarea>
+            </div>
+            <div class="form-group col-md-12 mt-4">
+                <button type="submit" class="btn btn-success btn-lg ml-2 float-right">Inserir</button>
+                <button type="submit" class="btn btn-primary btn-lg  float-right" routerLink="/cadastro/colaboradores">Voltar</button>
+            </div>
+        </div>
+    </form>
+</div>

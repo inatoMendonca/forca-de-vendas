@@ -1,0 +1,164 @@
+<div class="cabecalho">
+    <h1 class="border-bottom">Cadastrar Obra</h1>
+</div>
+<div class="form-busca">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="clienteObra">Nome Cliente</label>
+                <input
+                    #clienteObra="ngModel"
+                    [class.is-invalid]="!clienteObra.valid && clienteObra.touched"
+                    [(ngModel)]="obra.clienteObra"
+                    type="text"
+                    class="form-control" 
+                    id="enderecoObra"
+                    name="enderecoObra" 
+                    required
+                    placeholder="Digite o nome do(a) Cliente">
+                <div *ngIf="!clienteObra.valid && clienteObra.touched" class="invalid-feedback">
+                    Digite o nome do(a) Cliente
+                </div>  
+            </div>
+            <div class="form-group col-md-6">
+                <label for="vendedorObra">Vendedor</label>
+                <select 
+                    #vendedorObra="ngModel"
+                    [class.is-invalid]="!vendedorObra.valid && vendedorObra.touched"
+                    [(ngModel)]="obra.vendedorObra"
+                    id="vendedorObra" 
+                    name="vendedorObra"
+                    class="form-control"
+                    required>
+                    <option [ngValue]="undefined">Selecione...</option>
+                    <option value="Bruno Neves">Bruno Neves</option>
+                    <option value="Rafael Bonfim">Rafael Bonfim</option>
+                    <option value="Érica Lima">Érica Lima</option>
+                    <option value="João Bonfim">João Bonfim</option>
+                </select>
+                <div *ngIf="!vendedorObra.valid && vendedorObra.touched" class="invalid-feedback">
+                    Selecione o vendedor responsável
+                </div> 
+            </div>
+            <div class="form-group col-md-12">
+                <label for="enderecoObra">Endereço</label>
+                <input
+                    #enderecoObra="ngModel"
+                    [class.is-invalid]="!enderecoObra.valid && enderecoObra.touched"
+                    [(ngModel)]="obra.enderecoObra"
+                    type="text"
+                    class="form-control" 
+                    id="enderecoObra"
+                    name="enderecoObra" 
+                    required
+                    placeholder="Digite o endereço da Obra">
+                <div *ngIf="!enderecoObra.valid && enderecoObra.touched" class="invalid-feedback">
+                    Digite o endereço da Obra
+                </div>  
+            </div>
+            <div class="form-group col-md-4">
+                <label for="andamentoObra">Andamento</label>
+                <select 
+                    #andamentoObra="ngModel"
+                    [class.is-invalid]="!andamentoObra.valid && andamentoObra.touched"
+                    [(ngModel)]="obra.andamentoObra"
+                    id="andamentoObra"
+                    name="andamentoObra"
+                    class="form-control"
+                    required>
+                    <option [ngValue]="undefined">Selecione...</option>
+                    <option value="Alicerce">Alicerce</option>
+                    <option value="Levantando Parede">Levantando Parede</option>
+                    <option value="Laje">Laje</option>
+                    <option value="Reboco">Reboco</option>
+                    <option value="Pintura">Pintura</option>
+                    <option value="Finalizada">Finalizada</option>
+                </select>
+                <div *ngIf="!andamentoObra.valid && andamentoObra.touched" class="invalid-feedback">
+                    Selecione o Andamento da Obra
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="foneObra">Telefone</label>
+                <input 
+                    type="tel"
+                    #foneObra="ngModel"
+                    [class.is-invalid]="!foneObra.valid && foneObra.touched"
+                    [(ngModel)]="obra.foneObra"
+                    class="form-control" 
+                    id="foneObra" 
+                    name="foneObra"
+                    placeholder="Digite o Telefone do(a) Cliente"
+                    onkeypress="$(this).mask('(00) 00000-0000')"
+                    required>
+                <div *ngIf="!foneObra.valid && foneObra.touched" class="invalid-feedback">
+                    Digite o Telefone do(a) Cliente
+                </div> 
+            </div>
+            <div class="form-group col-md-4">
+                <label for="dataCadObra">Data do Cadastro</label>
+                <input
+                    #dataCadObra="ngModel"
+                    [class.is-invalid]="!dataCadObra.valid && dataCadObra.touched"
+                    [(ngModel)]="obra.dataCadObra"
+                    type="date"
+                    class="form-control" 
+                    id="dataCadObra"
+                    name="dataCadObra" 
+                    required>
+                <div *ngIf="!dataCadObra.valid && pedreiroObra.touched" class="invalid-feedback">
+                    Selecione a data do cadastro da Obra
+                </div>  
+            </div>
+            <div class="form-group col-md-12">
+                <label for="pedreiroObra">Pedreiro</label>
+                <input
+                    #pedreiroObra="ngModel"
+                    [class.is-invalid]="!pedreiroObra.valid && pedreiroObra.touched"
+                    [(ngModel)]="obra.pedreiroObra"
+                    type="text"
+                    class="form-control" 
+                    id="pedreiroObra"
+                    name="pedreiroObra" 
+                    required
+                    placeholder="Digite o nome do Pedreiro">
+                <div *ngIf="!pedreiroObra.valid && pedreiroObra.touched" class="invalid-feedback">
+                    Digite o nome do Pedreiro
+                </div>  
+            </div>
+            <div class="form-group col-md-12">
+                <label for="eletricistaObra">Eletricista</label>
+                <input
+                    #eletricistaObra="ngModel"
+                    [class.is-invalid]="!eletricistaObra.valid && eletricistaObra.touched"
+                    [(ngModel)]="obra.eletricistaObra"
+                    type="text"
+                    class="form-control" 
+                    id="eletricistaObra"
+                    name="eletricistaObra" 
+                    required
+                    placeholder="Digite o nome do Eletricista">
+                <div *ngIf="!eletricistaObra.valid && eletricistaObra.touched" class="invalid-feedback">
+                    Digite o nome do Eletricista
+                </div>  
+            </div>
+            <div class="form-group col-md-12">
+                <label for="obsObra">Relatório</label>
+                <textarea class="form-control" 
+                    #obsServico="ngModel"
+                    [(ngModel)]="obra.obsObra"
+                    id="obsObra" 
+                    name="obsObra"
+                    rows="3"
+                    placeholder="Faça o Relatório da Obra aqui">
+                </textarea>
+            </div>
+            <div class="form-group col-md-12 mt-4">
+                <button type="submit" class="btn btn-success btn-lg ml-2 float-right" [disabled]="!f.valid">Inserir</button>
+                <button type="submit" class="btn btn-primary btn-lg  float-right" routerLink="home/obras">Voltar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
