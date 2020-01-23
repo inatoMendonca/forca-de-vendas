@@ -33,8 +33,8 @@
                     <option [ngValue]="undefined">Selecione...</option>
                     <option value="Bruno Neves">Bruno Neves</option>
                     <option value="Rafael Bonfim">Rafael Bonfim</option>
-                    <option value="Érica Lima">Érica Lima</option>
-                    <option value="João Bonfim">João Bonfim</option>
+                    <option value="Érica Lima">Érica Martins</option>
+                    <option value="João Bonfim">João Vitor Bonfim</option>
                 </select>
                 <div *ngIf="!vendedorObra.valid && vendedorObra.touched" class="invalid-feedback">
                     Selecione o vendedor responsável
@@ -145,13 +145,17 @@
             <div class="form-group col-md-12">
                 <label for="obsObra">Relatório</label>
                 <textarea class="form-control" 
-                    #obsServico="ngModel"
+                    #obsObra="ngModel"
+                    [class.is-invalid]="!obsObra.valid && obsObra.touched"
                     [(ngModel)]="obra.obsObra"
                     id="obsObra" 
                     name="obsObra"
                     rows="3"
                     placeholder="Faça o Relatório da Obra aqui">
                 </textarea>
+                <div *ngIf="!obsObra.valid && obsObra.touched" class="invalid-feedback">
+                    Descreva o relatório da Obra
+                </div>  
             </div>
             <div class="form-group col-md-12 mt-4">
                 <button type="submit" class="btn btn-success btn-lg ml-2 float-right" [disabled]="!f.valid">Inserir</button>
