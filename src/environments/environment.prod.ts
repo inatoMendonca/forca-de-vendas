@@ -1,4 +1,4 @@
 export const environment = {
-  forcaDeVendasApi: 'https://luana-api.herokuapp.com/api',
+  forcaDeVendasApi: 'https://forca-api.herokuapp.com/api',
   production: true
 };
